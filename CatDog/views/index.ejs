@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="/stylesheets/stylesmain.css"/>
+    <link rel="stylesheet"  href="/stylesheets/menu.css"/>
+	<title>  CatDog </title>
+    <link rel="shortcut icon" href="images/icon.ico" />
+</head>
+<body >
+	<h1>Users</h1>
+	<% if (user) { %>
+	<h1>Welcome, <%= user.name %>
+	<a href='/logout'>Logout</a>
+	<% } else { %>
+Guest mode</h1> <a href='/login'>Login</a>
+	<% } %>
+<a href='/users/profile'>Profile page</a>
+
+<div id="wrapper">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-mask">
+                        <div class="card-header-date">
+                            <div class="card-header-date-day">16</div>
+                            <div class="card-header-date-month">November</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-body-header">
+                        <div class="card-body-header-category">CATS</div>
+                        <h1>Some great news about the cats</h1>
+                        <p class="card-body-header-sentence">
+                            I don't know what to write about.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    <div class="card2">
+                <div class="card2-header">
+                    <div class="card2-header-mask">
+                        <div class="card2-header-date">
+                            <div class="card2-header-date-day">16</div>
+                            <div class="card2-header-date-month">November</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2-body">
+                    <div class="card2-body-header">
+                        <div class="card2-body-header-category">DOGS</div>
+                        <h1>Some great news about the dogs</h1>
+                        <p class="card2-body-header-sentence">
+                            I don't know what to write about.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+    <div id="containers">
+    <nav>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="">DOGS</a>
+            <ul>
+                <li><a href="newsdogs.html">NEWS</a></li>
+                <li><a href="breedsdogs.html">BREEDS</a></li>
+                <li><a href="photosdogs.html">PHOTOS</a></li>
+                <li><a href="videosdogs.html">VIDEOS</a></li>
+            </ul>
+            </li>
+            <li><a href="">CATS</a>
+            <ul>
+                <li><a href="newscats.html">NEWS</a></li>
+                <li><a href="breedscats.html">BREEDS</a></li>
+                <li><a href="photoscats.html">PHOTOS</a></li>
+                <li><a href="videoscats.html">VIDEOS</a></li>
+                </ul>
+                    </li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="test.html">TEST</a></li>
+        </ul>
+    </nav>
+</div>
+        </div>
+    <a href="/register"><footer> register
+		</footer></a>
+</body>
+</html>

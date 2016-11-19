@@ -1,0 +1,257 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+@import "compass";
+@import "breakpoint";
+
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    font-family: 'OpenSans', sans-serif;
+}
+
+
+
+.card {
+    cursor: default;
+    position: fixed;
+    width: 371px;
+    top: 40%;
+    left: 30%;
+    transform: -webkit-translate(-50%, -50%);
+    transform: -moz-translate(-50%, -50%);
+    transform: -ms-translate(-50%, -50%);
+    transform: -o-translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.card-header {
+    width: 371px;
+    height: 235px;
+    background: url(/images/facepalm.jpg) no-repeat;
+    background-size: 371px 235px;
+    border-radius: 1px 1px 0 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.card:hover .card-header {
+    background-size: 450px 290px;
+    background-position: -32px -32px;
+}
+
+.card-header-mask {
+    height: 100%;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.card:hover .card-header-mask {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.card-header-date, .card-body-header-category {
+    text-transform: uppercase;
+    background-color: #5D478B;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-body-header-category {
+    position: absolute;
+    font-size: 13px;
+    top: -31px;
+    left: 0;
+    padding: 8px 14px;
+    line-height: 15px;
+}
+
+.card-header-date {
+    float: right;
+    margin: 20px 20px 0 0;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 12px 15px;
+    line-height: 15px;
+
+}
+
+.card-header-date-day {
+    font-size: 18px;
+}
+
+.card-header-date-month {
+    font-size: 11px;
+}
+
+.card-body {
+    background-color: #FFF;
+    border-radius: 0 0 1px 1px;
+    padding: 0 26px 26px 26px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+.card-body-header {
+    position: absolute;
+    left: 0;
+    padding: 26px;
+    background-color: #FFF;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    width:320px;
+}
+
+
+h1 {
+    color: #23282D;
+    letter-spacing: -1px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-body-header-sentence {
+    color: #5D478B;
+    margin-top: 14px;
+    font-size: 19px;
+}
+
+.card-body-header-sentence span {
+    font-style: italic;
+}
+
+.card2 {
+    cursor: default;
+    position: fixed;
+    width: 371px;
+    top: 40%;
+    left: 70%;
+    transform: -webkit-translate(-50%, -50%);
+    transform: -moz-translate(-50%, -50%);
+    transform: -ms-translate(-50%, -50%);
+    transform: -o-translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.card2-header {
+    width: 371px;
+    height: 235px;
+    background: url(/images/doggie.jpg) no-repeat;
+    background-size: 371px 235px;
+    border-radius: 1px 1px 0 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.card2:hover .card2-header {
+    background-size: 450px 290px;
+    background-position: -32px -32px;
+}
+
+.card2-header-mask {
+    height: 100%;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.card2:hover .card2-header-mask {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.card2-header-date, .card2-body-header-category {
+    text-transform: uppercase;
+    background-color: #5D478B;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card2-body-header-category {
+    position: absolute;
+    font-size: 13px;
+    top: -31px;
+    left: 0;
+    padding: 8px 14px;
+    line-height: 15px;
+}
+
+.card2-header-date {
+    float: right;
+    margin: 20px 20px 0 0;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 12px 15px;
+    line-height: 15px;
+}
+
+.card2-header-date-day {
+    font-size: 18px;
+}
+
+.card2-header-date-month {
+    font-size: 11px;
+}
+
+.card2-body {
+    background-color: #FFF;
+    border-radius: 0 0 1px 1px;
+    padding: 0 26px 26px 26px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+.card2-body-header {
+    position: absolute;
+    left: 0;
+    padding: 26px;
+    background-color: #FFF;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+     width:320px;
+}
+
+
+.card2-body-header-sentence {
+    color: #5D478B;
+    margin-top: 14px;
+    font-size: 19px;
+}
+
+.card2-body-header-sentence span {
+    font-style: italic;
+}

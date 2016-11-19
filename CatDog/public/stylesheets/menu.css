@@ -1,0 +1,125 @@
+html, body, div, span, applet, object, iframes,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+	background: url(/images/fon.jpg) no-repeat;
+	word-wrap:break-word !important;
+	font-family: 'Open Sans', sans-serif;
+	}
+
+a, d {
+	color: #FFF;
+}
+
+#containers {
+
+	margin: 0 auto;
+
+}
+
+nav {
+	margin: 50px 0;
+	background-color: #5D478B;
+    position : relative;
+    z-index:2;
+}
+
+nav ul {
+	padding: 0;
+    margin: 0;
+	list-style: none;
+	position: relative;
+
+	}
+
+nav ul li {
+	display:inline-block;
+	background-color: #5D478B;
+    opacity: 0.95;
+
+	}
+
+nav a {
+	display:block;
+	padding:0 10px;
+	color:#FFF;
+	font-size:20px;
+	line-height: 60px;
+	text-decoration: none;
+    width: 228px;
+    text-align: center;
+
+}
+
+nav a:hover {
+	background-color: #000000;
+
+}
+
+nav ul ul {
+	display: none;
+	position: absolute;
+	top: 60px;
+}
+
+nav ul li:hover > ul {
+	display:inherit;
+
+}
+
+nav ul ul li {
+	width:252px;
+	float:none;
+	display:list-item;
+	position: relative;
+
+}
+
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	left:190px;
+
+}
+
+li > a:after { content:  ''; }
+li > a:only-child:after { content: ''; }
+
+footer {
+    position: absolute;
+    text-align: center;
+    line-height: 18px;
+    z-index: 10;
+    bottom: 0;
+    left: 50%;
+    transform: -webkit-translate(-50%, -50%);
+    transform: -moz-translate(-50%, -50%);
+    transform: -ms-translate(-50%, -50%);
+    transform: -o-translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    letter-spacing: 1px;
+    color: #1C1C1C;
+    font-size: 9px;
+}
+
+footer a {
+    color: inherit;
+}
