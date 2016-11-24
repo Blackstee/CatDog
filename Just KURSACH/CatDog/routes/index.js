@@ -11,7 +11,7 @@ router.post('/login', function (req, res){
   var username = req.body.username;
   var password = req.body.password;
 
-  User.findOne({username: username, password: password}, function (err, user){
+  User.findOne({username: username}, function (err, user){
     if (err){
       console.log(err);
       return res.status(500).send();
@@ -19,8 +19,14 @@ router.post('/login', function (req, res){
     if (!user) {
       return res.status(404).send();
     }
-    req.session.user = user;
-    return res.status(200). send();
+    user.comparePassword(password, function(err, isMatch) {
+        if (isMatch && isMatch == true){
+          req.session.user = user;
+          return res.status(200).send();
+        } else {
+          return res.status(401).send();
+        }
+    });
   })
 });
 
@@ -31,6 +37,10 @@ router.get('/dashboard', function(req, res){
   return res.status(200).send("Welcooome");
 })
 
+router.get('/logout', function(req, res){
+  req.session.destroy();
+  return res.status(200).send();
+})
 router.post('/register', function(req, res){
   var username = req.body.username;
   var password = req.body.password;
