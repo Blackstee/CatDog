@@ -3,9 +3,12 @@ var router = express.Router();
 var User = require ('./user');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send ('ok');
-  //res.render('index', { title: 'Express' });
+	res.render('index', { user: user });
 });
+
+router.get('/register', (req, res) => res.render("register", { user: req.user }));
+
+router.get('/login', (req, res) => res.render("users_login"));
 
 router.post('/login', function (req, res){
   var username = req.body.username;
@@ -41,6 +44,9 @@ router.get('/logout', function(req, res){
   req.session.destroy();
   return res.status(200).send();
 })
+
+
+
 router.post('/register', function(req, res){
   var username = req.body.username;
   var password = req.body.password;
