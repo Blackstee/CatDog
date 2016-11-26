@@ -13,9 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/register', (req, res) => res.render("register", { user: req.user }));
 
-router.get('/tologin', (req, res) => res.render ("login"));
-
-router.get('/login', (req, res) => res.render("users_login"));
+router.get('/login', (req, res) => res.render("login", { user: req.user }));
 
 router.get('/logout', (req, res) => {
 	req.session.destroy();
@@ -39,13 +37,14 @@ router.post('/login', function (req, res){
       return res.status(404).send();
     }
     user.comparePassword(password, function(err, isMatch) {
-        if (isMatch && isMatch == true){
+        if (isMatch && isMatch ===  true){
           req.session.user = user;
+					console.log ("logged in!!");
+					res.redirect ('/');
           return res.status(200).send();
         } else {
           return res.status(401).send();
         }
-        res.redirect('/');
     });
   })
 });
@@ -99,6 +98,11 @@ router.post('/register', function(req, res){
   newuser.password = password;
   newuser.firstname = firstname;
   newuser.lastname = lastname;
+	if (username == "BOSS"){
+		newuser.status = "admin";
+	} else {
+		newuser.status = "user";
+	}
   newuser.save(function(err, savedUser){
     if (err){
       console.log(err);
@@ -106,10 +110,18 @@ router.post('/register', function(req, res){
     }
     return res.status(200).send();
   })
+	res.redirect ('/login');
 }
 })
 })
 
-router.get('/users', (req, res)=> User.find().then(users => res.json(users)));
+router.get('/users', (req, res)=> User.find()
+		.then(users => {
+			res.render('listofusers', {
+				users: users
+			});
+		})
+		.catch(err => res.status(500).end(err));
+	});
 
 module.exports = router;

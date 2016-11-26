@@ -33,7 +33,11 @@
                 </ul>
                     </li>
             <li><a href="blog.html">BLOG</a></li>
-            <li><a href="login.html">LOG IN</a></li>
+						<% if (user) { %>
+						<li><a href="/logout">LOG OUT</a></li>
+						<% } else { %>
+					<li><a href="/login">LOG IN</a></li>
+						<% } %>
         </ul>
     </nav>
 </div>
@@ -45,11 +49,11 @@
     <div id="login">
         <form form action='/register' method='POST'>
             <fieldset class="clearfix">
-                <p><span class="fontawesome-user"></span><input type="text" name="username" ></p>
-                <p><span class="fontawesome-user"></span><input type="text" name="firstname"></p>
-								<p><span class="fontawesome-user"></span><input type="text" name="lastname"></p>
-								<p><span class="fontawesome-lock"></span><input type="password"  name="pass" ></p>
-								<p><span class="fontawesome-lock"></span><input type="password"  name="pass2"</p>
+                <p><span class="fontawesome-user"></span><input type="text" name="username"  value="username" onBlur="if(this.value == '') this.value = 'username'" onFocus="if(this.value == 'username') this.value = ''" required></p>
+                <p><span class="fontawesome-user"></span><input type="text" name="firstname" value="firstname" onBlur="if(this.value == '') this.value = 'firstname'" onFocus="if(this.value == 'firstname') this.value = ''" required></p>
+								<p><span class="fontawesome-user"></span><input type="text" name="lastname" value="lastname" onBlur="if(this.value == '') this.value = 'lastname'" onFocus="if(this.value == 'lastname') this.value = ''" required></p>
+								<p><span class="fontawesome-lock"></span><input type="password"  name="pass" value="pass" onBlur="if(this.value == '') this.value = 'pass'" onFocus="if(this.value == 'pass') this.value = ''" required ></p>
+								<p><span class="fontawesome-lock"></span><input type="password"  name="pass2" value="pass2" onBlur="if(this.value == '') this.value = 'pass2'" onFocus="if(this.value == 'pass2') this.value = ''" required</p>
                 <p><input type="submit" value="REGISTER"></p>
             </fieldset>
         </form>

@@ -9,16 +9,42 @@
     <link rel="shortcut icon" href="/public/images/icon.ico" />
 </head>
 <body >
-	<h1>Users</h1>
-	<% if (user) { %>
-	<h1>Welcome, <%= user.name %>
-	<a href='/logout'>Logout</a>
-	<% } else { %>
-Guest mode</h1> <a href='/login'>Login</a>
-	<% } %>
-<a href='/users/profile'>Profile page</a>
+	<div id="containers">
+	<nav>
+			<ul>
+					<li><a href="home.html">HOME</a></li>
+					<li><a href="">DOGS</a>
+					<ul>
+							<li><a href="newsdogs.html">NEWS</a></li>
+							<li><a href="breedsdogs.html">BREEDS</a></li>
+							<li><a href="photosdogs.html">PHOTOS</a></li>
+							<li><a href="videosdogs.html">VIDEOS</a></li>
+					</ul>
+					</li>
+					<li><a href="">CATS</a>
+					<ul>
+							<li><a href="newscats.html">NEWS</a></li>
+							<li><a href="breedscats.html">BREEDS</a></li>
+							<li><a href="photoscats.html">PHOTOS</a></li>
+							<li><a href="videoscats.html">VIDEOS</a></li>
+							</ul>
+									</li>
+					<li><a href="blog.html">BLOG</a></li>
+					<% if (user) { %>
+					<li><a href="/logout">LOG OUT</a></li>
+					<% } else { %>
+				<li><a href="/login">LOG IN</a></li>
+					<% } %>
 
+			</ul>
+	</nav>
+</div>
+<h1><% if (user && user.status == "admin") { %>
+Hello, admin!<br>
+<a href="/users">Go to list of users</a>
+<% } %></h1>
 <div id="wrapper">
+
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-mask">
@@ -58,33 +84,11 @@ Guest mode</h1> <a href='/login'>Login</a>
                 </div>
             </div>
 
-    <div id="containers">
-    <nav>
-        <ul>
-            <li><a href="home.html">HOME</a></li>
-            <li><a href="">DOGS</a>
-            <ul>
-                <li><a href="newsdogs.html">NEWS</a></li>
-                <li><a href="breedsdogs.html">BREEDS</a></li>
-                <li><a href="photosdogs.html">PHOTOS</a></li>
-                <li><a href="videosdogs.html">VIDEOS</a></li>
-            </ul>
-            </li>
-            <li><a href="">CATS</a>
-            <ul>
-                <li><a href="newscats.html">NEWS</a></li>
-                <li><a href="breedscats.html">BREEDS</a></li>
-                <li><a href="photoscats.html">PHOTOS</a></li>
-                <li><a href="videoscats.html">VIDEOS</a></li>
-                </ul>
-                    </li>
-            <li><a href="blog.html">BLOG</a></li>
-            <li><a href="/tologin">LOG IN</a></li>
-        </ul>
-    </nav>
-</div>
         </div>
-    <a href="/register"><footer> register
-		</footer></a>
+				<footer> <h1><% if (user) { %>
+				YOU ARE <%= user.username %>
+				<% } %></h1>
+					It is the web-site about cats and dogs
+		        </footer>
 </body>
 </html>

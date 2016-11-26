@@ -33,24 +33,29 @@
                 </ul>
                     </li>
             <li><a href="blog.html">BLOG</a></li>
-            <li><a href="login.html">LOG IN</a></li>
+						<% if (user) { %>
+						<li><a href="/logout">LOG OUT</a></li>
+						<% } else { %>
+					<li><a href="/login">LOG IN</a></li>
+						<% } %>
         </ul>
     </nav>
 </div>
-        </div>
+  </div>
     <footer> It is the web-site about cats and dogs
         </footer>
 
 
     <div id="login">
-        <form action="javascript:void(0);" method="get">
+        <form action="/login" method="POST">
             <fieldset class="clearfix">
-                <p><span class="fontawesome-user"></span><input type="text" value="username" onBlur="if(this.value == '') this.value = 'username'" onFocus="if(this.value == 'username') this.value = ''" required></p>
-                <p><span class="fontawesome-lock"></span><input type="password"  value="pass" onBlur="if(this.value == '') this.value = 'pass'" onFocus="if(this.value == 'pass') this.value = ''" required></p>
+                <p><span class="fontawesome-user"></span><input type="text" name= "username" value="username" onBlur="if(this.value == '') this.value = 'username'" onFocus="if(this.value == 'username') this.value = ''" required></p>
+                <p><span class="fontawesome-lock"></span><input type="password" name="password" value="pass" onBlur="if(this.value == '') this.value = 'pass'" onFocus="if(this.value == 'pass') this.value = ''" required></p>
                 <p><input type="submit" value="LOG IN"></p>
             </fieldset>
         </form>
         <p>No account? &nbsp;&nbsp;<a href="/register">Registration</a><span class="fontawesome-arrow-right"></span></p>
     </div>
+
 </body>
 </html>
