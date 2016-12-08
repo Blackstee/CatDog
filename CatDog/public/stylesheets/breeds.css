@@ -1,0 +1,135 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.u-float-right {
+  float: right;
+}
+
+.u-clearfix:before,
+.u-clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.u-clearfix:after {
+  clear: both;
+}
+
+.u-clearfix {
+  *zoom: 1;
+}
+
+.u-flex-center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.container {
+  margin: 50px auto;
+  width: 700px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+  margin-bottom: 65px;
+  width: 100%;
+}
+
+.card-media {
+  float: left;
+  padding: 0 0 25px 25px;
+  position: relative;
+  width: 145px;
+}
+
+.card-media-img {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  float: left;
+  margin-top: -5px;
+  position: relative;
+  width:200px;
+  z-index: 0;
+
+}
+
+
+.card-body {
+  float: left;
+  padding: 25px 25px 25px 20px;
+  width: 415px;
+}
+
+.card-body-heading {
+  color: #5D478B;
+  display: inline-block;
+  font-size: 36px;
+  position:relative;
+  left: 100px;
+}
+
+.card-body-desc {
+  color: #1C1C1C;
+  display: inline-block;
+  font-size: 26px;
+  position:relative;
+  left: 100px;
+}
+
+.card-button {
+  color: #9C948A;
+  display: inline-block;
+  font-weight: 500;
+  padding: 12px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 200ms ease-out;
+  position: relative;
+  left: 100px;
+  z-index: 0;
+}
+
+
+.card-button-cta {
+  background-color: #9C948A;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+  color: #fff;
+}
+
+.card-button-cta:hover {
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, .18);
+  background-color: #5D478B;
+}
+
+
+.card-button-cto {
+  background-color: #9C948A;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+  color: #fff;
+}
+
+.card-button-cto:hover {
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, .18);
+  background-color: #B22222;
+}
+
+.card-button-link:hover {
+  color: #444;
+}
+
+.card-button-link:hover svg {
+  fill: #444;
+}
+
+.card-button-icon {
+  display:inline-block;
+  vertical-align:middle;
+}

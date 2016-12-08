@@ -11,34 +11,34 @@
 </head>
 <body >
 <div id="wrapper">
-
     <div id="containers">
     <nav>
-        <ul>
-            <li><a href="home.html">HOME</a></li>
-            <li><a href="">DOGS</a>
-            <ul>
-                <li><a href="newsdogs.html">NEWS</a></li>
-                <li><a href="breedsdogs.html">BREEDS</a></li>
-                <li><a href="photosdogs.html">PHOTOS</a></li>
-                <li><a href="videosdogs.html">VIDEOS</a></li>
-            </ul>
-            </li>
-            <li><a href="">CATS</a>
-            <ul>
-                <li><a href="newscats.html">NEWS</a></li>
-                <li><a href="breedscats.html">BREEDS</a></li>
-                <li><a href="photoscats.html">PHOTOS</a></li>
-                <li><a href="videoscats.html">VIDEOS</a></li>
-                </ul>
-                    </li>
-            <li><a href="blog.html">BLOG</a></li>
-						<% if (user) { %>
-						<li><a href="/logout">LOG OUT</a></li>
-						<% } else { %>
-					<li><a href="/login">LOG IN</a></li>
-						<% } %>
-        </ul>
+			<ul>
+					<li><a href="/">HOME</a></li>
+					<li><a href="">DOGS</a>
+					<ul>
+						<li><a href="/dogs/news">NEWS</a></li>
+						<li><a href="/dogs/breeds">BREEDS</a></li>
+						<li><a href="/dogs/photos">PHOTOS</a></li>
+						<li><a href="/dogs/videos">VIDEOS</a></li>
+					</ul>
+					</li>
+					<li><a href="">CATS</a>
+					<ul>
+							<li><a href="/cats/news">NEWS</a></li>
+							<li><a href="/cats/breeds">BREEDS</a></li>
+							<li><a href="/cats/photos">PHOTOS</a></li>
+							<li><a href="/cats/videos">VIDEOS</a></li>
+							</ul>
+									</li>
+					<li><a href="/blog">BLOG</a></li>
+					<% if (user) { %>
+					<li><a href="/logout">LOG OUT</a></li>
+					<% } else { %>
+				<li><a href="/login">LOG IN</a></li>
+					<% } %>
+
+			</ul>
     </nav>
 </div>
   </div>

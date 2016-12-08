@@ -1,36 +1,75 @@
-<!doctype html>
+<!DOCTYPE HTML>
 
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="/stylesheets/stylesmain.css"/>
+    <link rel="stylesheet"  href="/stylesheets/menu.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <title>Sample</title>
-  <meta name="description" content="Sample site">
-  <meta name="author" content="phadyniak">
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>  CatDog </title>
+    <link rel="shortcut icon" href="/public/images/icon.ico" />
 </head>
+<body >
+	<div id="containers">
+	<nav>
+		<ul>
+				<li><a href="/">HOME</a></li>
+				<li><a href="">DOGS</a>
+				<ul>
+					<li><a href="/dogs/news">NEWS</a></li>
+					<li><a href="/dogs/breeds">BREEDS</a></li>
+					<li><a href="/dogs/photos">PHOTOS</a></li>
+					<li><a href="/dogs/videos">VIDEOS</a></li>
+				</ul>
+				</li>
+				<li><a href="">CATS</a>
+				<ul>
+						<li><a href="/cats/news">NEWS</a></li>
+						<li><a href="/cats/breeds">BREEDS</a></li>
+						<li><a href="/cats/photos">PHOTOS</a></li>
+						<li><a href="/cats/videos">VIDEOS</a></li>
+						</ul>
+								</li>
+				<li><a href="/blog">BLOG</a></li>
+				<% if (user) { %>
+				<li><a href="/logout">LOG OUT</a></li>
+				<% } else { %>
+			<li><a href="/login">LOG IN</a></li>
+				<% } %>
 
-<body>
-	<div class='container'>
-		<div class='page-header'>
-			<h1>Users</h1>
-		</div>
-		<div class='row'>
-			<div class='col-md-6'>
-				<% users.filter(x => x.username).forEach( user => { %>
-					<div class='row'>
-						<div class='col-md-6'>
-							<b><%= user.username %></b>
-						</div>
-						<div class='col-md-6'>
-							<img src='data:image/jpg;base64,<%= user.avatar %>' width=100 height=100 />
-						</div>
-					</div>
-				<% }); %>
-			</div>
-		</div>
-	</div>
+		</ul>
+	</nav>
+</div>
+<div id="wrapper">
+  <div class='container'>
+    <div class='page-header'>
+      <h1>Users</h1>
+    </div>
+    <div class='row' >
+      <div class='col-md-6'>
+        <% if (user == "BOSS") {users.filter(x => x.username).forEach( justuser => { %>
+          <div class='row'>
+
+            <div class='col-md-6'>
+              <b><%= justuser.username %></b>
+            </div>
+            <div class='col-md-6'>
+            </div>
+            <p>
+          </div>
+        <% }) } %>
+      </div>
+    </div>
+    <form action = "/deleteuser" method = "POST">
+      <div class = 'forforms'><input type="text" name="username" value  = "to delete"  onBlur="if(this.value == '') this.value = 'to delete'" onFocus="if(this.value == 'to delete') this.value = ''" required</div>
+    <input type="submit" value="Delete">
+      </form>
+  </div>
+				<footer> <h1><% if (user) { %>
+				YOU ARE BOSS
+				<% } %></h1>
+					It is the web-site about cats and dogs
+		        </footer>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="/stylesheets/breeds.css"/>
+    <link rel="stylesheet"  href="/stylesheets/menu.css" />
+	<title>  CatDog </title>
+    <link rel="shortcut icon" href="/images/icon.ico" />
+</head>
+<body >
+
+    <div id="containers">
+    <nav>
+			<ul>
+					<li><a href="/">HOME</a></li>
+					<li><a href="">DOGS</a>
+					<ul>
+						<li><a href="/dogs/news">NEWS</a></li>
+						<li><a href="/dogs/breeds">BREEDS</a></li>
+						<li><a href="/dogs/photos">PHOTOS</a></li>
+						<li><a href="/dogs/videos">VIDEOS</a></li>
+					</ul>
+					</li>
+					<li><a href="">CATS</a>
+					<ul>
+							<li><a href="/cats/news">NEWS</a></li>
+							<li><a href="/cats/breeds">BREEDS</a></li>
+							<li><a href="/cats/photos">PHOTOS</a></li>
+							<li><a href="/cats/videos">VIDEOS</a></li>
+							</ul>
+									</li>
+					<li><a href="/blog">BLOG</a></li>
+					<% if (user) { %>
+					<li><a href="/logout">LOG OUT</a></li>
+					<% } else { %>
+				<li><a href="/login">LOG IN</a></li>
+					<% } %>
+
+			</ul>
+    </nav>
+</div>
+<% if (user) { %>
+<h1><a href = "/cats/breeds/newpost">Create new post</a></h1><%} %>
+<% posts.filter(x => x.title).forEach( post => { %>
+<div class="container">
+  <div class="card u-clearfix">
+    <div class="card-media">
+      <img src='data:image/jpg;base64,<%= post.image %>' class="card-media-img" />
+    </div>
+    <div class="card-body">
+      <h2 class="card-body-heading"><%= post.title %></h2>
+        <br>
+				<h3 class="card-body-desc"><%= post.description%></h3>
+				<br><br>
+				<a href="/cats/breeds/<%= post._id %>" class="card-button card-button-cta">
+					MORE INFO ></a>
+		<br><br>
+		<a href="/cats/deletepost/<%= post._id %>" class="card-button card-button-cto">
+	DELETE POST</a>
+    </div>
+  </div>
+	<% })  %>
+</div>
+<% if (user) { %>
+YOU ARE <%= user.username %>
+<% } %>
+</body>
+</html>

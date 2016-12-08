@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="/stylesheets/photosstyle.css"/>
+    <link rel="stylesheet"  href="/stylesheets/menu.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="galleria/galleria-1.4.min.js"></script>
+	<title>  CatDog </title>
+    <link rel="shortcut icon" href="/images/icon.ico" />
+</head>
+<body >
+    <div id="containers">
+    <nav>
+			<ul>
+					<li><a href="/">HOME</a></li>
+					<li><a href="">DOGS</a>
+					<ul>
+						<li><a href="/dogs/news">NEWS</a></li>
+						<li><a href="/dogs/breeds">BREEDS</a></li>
+						<li><a href="/dogs/photos">PHOTOS</a></li>
+						<li><a href="/dogs/videos">VIDEOS</a></li>
+					</ul>
+					</li>
+					<li><a href="">CATS</a>
+					<ul>
+							<li><a href="/cats/news">NEWS</a></li>
+							<li><a href="/cats/breeds">BREEDS</a></li>
+							<li><a href="/cats/photos">PHOTOS</a></li>
+							<li><a href="/cats/videos">VIDEOS</a></li>
+							</ul>
+									</li>
+					<li><a href="/blog">BLOG</a></li>
+					<% if (user) { %>
+					<li><a href="/logout">LOG OUT</a></li>
+					<% } else { %>
+				<li><a href="/login">LOG IN</a></li>
+					<% } %>
+
+			</ul>
+    </nav>
+</div>
+
+<div id="gallery">
+  <img src="/images/1.jpg" alt="" tabindex="0" />
+  <img src="/images/2.jpg" alt="" tabindex="0" />
+  <img src="/images/3.jpg" alt="" tabindex="0" />
+  <img src="/images/4.jpg" alt="" tabindex="0" />
+  <img src="/images/kitten.jpg" alt="" tabindex="0" />
+  <img src="/images/kitten2.jpg" alt="" tabindex="0" />
+  <img src="/images/pawpaw.jpg" alt="" tabindex="0" />
+  <img src="/images/sleeps.jpg" alt="" tabindex="0" />
+  <div></div>
+</div>
+</body>
+</html>

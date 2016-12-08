@@ -1,50 +1,15 @@
 <!DOCTYPE HTML>
-
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="/stylesheets/stylesmain.css"/>
     <link rel="stylesheet"  href="/stylesheets/menu.css"/>
+	<script src="js/slide_bar.js"></script>
 	<title>  CatDog </title>
-    <link rel="shortcut icon" href="/public/images/icon.ico" />
+    <link rel="shortcut icon" href="/images/icon.ico" />
 </head>
 <body >
-	<div id="containers">
-	<nav>
-			<ul>
-					<li><a href="/">HOME</a></li>
-					<li><a href="">DOGS</a>
-					<ul>
-						<li><a href="/dogs/news">NEWS</a></li>
-						<li><a href="/dogs/breeds">BREEDS</a></li>
-						<li><a href="/dogs/photos">PHOTOS</a></li>
-						<li><a href="/dogs/videos">VIDEOS</a></li>
-					</ul>
-					</li>
-					<li><a href="">CATS</a>
-					<ul>
-							<li><a href="/cats/news">NEWS</a></li>
-							<li><a href="/cats/breeds">BREEDS</a></li>
-							<li><a href="/cats/photos">PHOTOS</a></li>
-							<li><a href="/cats/videos">VIDEOS</a></li>
-							</ul>
-									</li>
-					<li><a href="/blog">BLOG</a></li>
-					<% if (user) { %>
-					<li><a href="/logout">LOG OUT</a></li>
-					<% } else { %>
-				<li><a href="/login">LOG IN</a></li>
-					<% } %>
-
-			</ul>
-	</nav>
-</div>
-<h1><% if (user && user.status == "admin") { %>
-Hello, admin!<br>
-<a href="/users">Go to list of users</a>
-<% } %></h1>
 <div id="wrapper">
-
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-mask">
@@ -84,11 +49,38 @@ Hello, admin!<br>
                 </div>
             </div>
 
+    <div id="containers">
+    <nav>
+			<ul>
+					<li><a href="/">HOME</a></li>
+					<li><a href="">DOGS</a>
+					<ul>
+						<li><a href="/dogs/news">NEWS</a></li>
+						<li><a href="/dogs/breeds">BREEDS</a></li>
+						<li><a href="/dogs/photos">PHOTOS</a></li>
+						<li><a href="/dogs/videos">VIDEOS</a></li>
+					</ul>
+					</li>
+					<li><a href="">CATS</a>
+					<ul>
+							<li><a href="/cats/news">NEWS</a></li>
+							<li><a href="/cats/breeds">BREEDS</a></li>
+							<li><a href="/cats/photos">PHOTOS</a></li>
+							<li><a href="/cats/videos">VIDEOS</a></li>
+							</ul>
+									</li>
+					<li><a href="/blog">BLOG</a></li>
+					<% if (user) { %>
+					<li><a href="/logout">LOG OUT</a></li>
+					<% } else { %>
+				<li><a href="/login">LOG IN</a></li>
+					<% } %>
+
+			</ul>
+    </nav>
+</div>
         </div>
-				<footer> <h1><% if (user) { %>
-				YOU ARE <%= user.username %>
-				<% } %></h1>
-					It is the web-site about cats and dogs
-		        </footer>
+    <footer> It is the web-site about cats and dogs
+        </footer>
 </body>
 </html>
