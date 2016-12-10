@@ -20,7 +20,8 @@ time, mark, audio, video {
 }
 
 body {
-	background: url(/images/fon.jpg) no-repeat;
+	background: url(/images/fon.jpg);
+  background-attachment:fixed;
 	word-wrap:break-word !important;
 	font-family: 'Open Sans', sans-serif;
 	}

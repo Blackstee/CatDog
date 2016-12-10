@@ -195,12 +195,15 @@ router.post('/deleteuser', function(req, res){
 
 //==================================CATS===========================================
 
+
 router.get('/cats/breeds', function(req, res){
 	Post.find()
 		.then(posts => {
 			res.render('breedscats', {
          posts: posts,
 				 user: req.session.user,
+				 search: "nothing",
+				 lol: "posts"
 			});
 		})
 		.catch(err => res.status(500).end(err));
@@ -231,6 +234,42 @@ router.get('/cats/photos', (req, res) => res.render("photoscats", { user: req.se
 
 router.get('/cats/videos', (req, res) => res.render("videoscats", { user: req.session.user }));
 
+router.get ('/cats/search', function (req, res){
+	var lol = "posts";
+	if (req.query.title == '')
+	res.redirect('/cats/breeds');
+	else {
+	Post.find ({title: req.query.title}, function (err, posts) {
+		if (err)
+		res.send (err);
+		else {
+			Post.findOne( {title: req.query.title}, function(err, post) {
+							if (err)
+									res.send(err);
+						  else {
+								if (post == null){
+								res.render('breedscats', {
+					         posts: posts,
+									 user: req.session.user,
+									 search: req.query.title,
+									 lol : "noposts",
+								});
+							}
+								else {
+								res.render('breedscats', {
+					         posts: posts,
+									 user: req.session.user,
+									 search: req.query.title,
+									 lol : lol,
+								});
+							}
+							}
+						});
+		}
+	})
+}
+})
+
 //==================================DOGS===========================================
 
 router.get('/dogs/breeds', function(req, res){
@@ -239,7 +278,9 @@ router.get('/dogs/breeds', function(req, res){
 		.then(posts => {
 			res.render('breedsdogs', {
          posts: posts,
-				 user: req.session.user
+				 user: req.session.user,
+				 search: "nothing",
+				 lol: "posts"
 			});
 		})
 		.catch(err => res.status(500).end(err));
@@ -271,6 +312,42 @@ router.get('/dogs/news', (req, res) => res.render("newsdogs", { user: req.sessio
 router.get('/dogs/photos', (req, res) => res.render("photosdogs", { user: req.session.user }));
 
 router.get('/dogs/videos', (req, res) => res.render("videosdogs", { user: req.session.user }));
+
+router.get ('/dogs/search', function (req, res){
+	var lol = "posts";
+	if (req.query.title == '')
+	res.redirect('/dogs/breeds');
+	else {
+	Post.find ({title: req.query.title}, function (err, posts) {
+		if (err)
+		res.send (err);
+		else {
+			Post.findOne( {title: req.query.title}, function(err, post) {
+							if (err)
+									res.send(err);
+						  else {
+								if (post == null){
+								res.render('breedsdogs', {
+					         posts: posts,
+									 user: req.session.user,
+									 search: req.query.title,
+									 lol : "noposts",
+								});
+							}
+								else {
+								res.render('breedsdogs', {
+					         posts: posts,
+									 user: req.session.user,
+									 search: req.query.title,
+									 lol : lol,
+								});
+							}
+							}
+						});
+		}
+	})
+}
+})
 
 //==================================BLOG===========================================
 

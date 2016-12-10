@@ -40,7 +40,22 @@
     </nav>
 </div>
 <% if (user) { %>
-<h1><a href = "/dogs/breeds/newpost" >Create new post</a></h1><%} %>
+<h1><a href = "/dogs/breeds/newpost" >Create new post</a></h1>
+<form action = "/dogs/search" method = "GET">
+	<input type="text" name= "title"  >
+<input type="submit" value="SEARCH">
+<% if (search != "nothing" && search!= "") {
+	%>
+	<h1>Searched for <%= search %></h1>
+	<%
+} %>
+</form>
+<%} %>
+<% if (lol == "noposts") {
+	%>
+	<h1>No posts found</h1>
+	<%
+} %>
 <% posts.filter(x => x.title).forEach( post => { %>
 <div class="container">
   <div class="card u-clearfix">
@@ -61,8 +76,9 @@
   </div>
 	<% })  %>
 </div>
-<% if (user) { %>
+<footer> <h1><% if (user) { %>
 YOU ARE <%= user.username %>
-<% } %>
+<% } %></h1>
+		</footer>
 </body>
 </html>
