@@ -4,6 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="/stylesheets/breeds.css"/>
     <link rel="stylesheet"  href="/stylesheets/menu.css" />
+		<link rel="stylesheet"  href="/stylesheets/register.css" />
 	<title>  CatDog </title>
     <link rel="shortcut icon" href="images/icon.ico" />
 </head>
@@ -40,20 +41,20 @@
     </nav>
 </div>
 <div class="container">
-  <div class="card u-clearfix">
-		<form action='/cats/breeds/newpost' method='POST' enctype="multipart/form-data">
-			<label>TITLE</label>
-			<p><input type="text" name = "title" value = "title" onBlur="if(this.value == '') this.value = 'title'" onFocus="if(this.value == 'title') this.value = ''" required/></p>
-			<label>DESCRIPTION</label>
-			<p><input type="text" name = "description" value = "description" onBlur="if(this.value == '') this.value = 'description'" onFocus="if(this.value == 'description') this.value = ''" required/></p>
-			<label>IMAGE</label>
-			<input type='file' name='post' />
-			<br />
-			<button type='submit' class='btn btn-primary'>POST</button>
-		</form>
-    </div>
+	<div id="login">
+			<form action="/cats/breeds/newpost" method="POST" enctype="multipart/form-data">
+					<fieldset class="clearfix">
+						<label>TITLE</label>
+						<p><input type="text" name = "title" value = "title" onBlur="if(this.value == '') this.value = 'title'" onFocus="if(this.value == 'title') this.value = ''" required/></p>
+						<label>DESCRIPTION</label>
+						<p><input type="text" name = "description" value = "description" onBlur="if(this.value == '') this.value = 'description'" onFocus="if(this.value == 'description') this.value = ''" required/></p>
+						<label>IMAGE</label>
+						<input type='file' name='post' />
+						<p><input type="submit" value="POST"></p>
+					</fieldset>
+			</form>
+	</div>
   </div>
-</div>
 
 </body>
 </html>

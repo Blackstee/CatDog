@@ -5,6 +5,7 @@ var mypost = new mongoose.Schema({
     author: { type: String },
     description: { type: String },
     image: {type: Buffer },
+    animal: {type: String},
     modified: { type: Date, default: Date.now }
 });
 

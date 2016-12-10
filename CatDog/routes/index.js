@@ -113,6 +113,7 @@ router.post('/dogs/breeds/newpost',	(req, res) => {
 			newpost.title = req.body.title;
 			newpost.description = req.body.description;
 			newpost.image = base64String;
+			newpost.animal = "dogs";
 			newpost.save(function(err) {
 					if (err)
 							res.send(err);
@@ -129,6 +130,7 @@ router.post('/cats/breeds/newpost',	(req, res) => {
 			newpost.title = req.body.title;
 			newpost.description = req.body.description;
 			newpost.image = base64String;
+			newpost.animal = "cats";
 			newpost.save(function(err) {
 					if (err)
 							res.send(err);
@@ -197,7 +199,7 @@ router.post('/deleteuser', function(req, res){
 
 
 router.get('/cats/breeds', function(req, res){
-	Post.find()
+	Post.find({animal:"cats"})
 		.then(posts => {
 			res.render('breedscats', {
          posts: posts,
@@ -274,7 +276,7 @@ router.get ('/cats/search', function (req, res){
 
 router.get('/dogs/breeds', function(req, res){
 	console.log(req.user);
-	Post.find()
+	Post.find({animal: "dogs"})
 		.then(posts => {
 			res.render('breedsdogs', {
          posts: posts,
