@@ -46,8 +46,10 @@
 					<fieldset class="clearfix">
 						<label>TITLE</label>
 						<p><input type="text" name = "title" value = "title" onBlur="if(this.value == '') this.value = 'title'" onFocus="if(this.value == 'title') this.value = ''" required/></p>
+            <% if (photos == "no") { %>
 						<label>DESCRIPTION</label>
 						<p><input type="text" name = "description" value = "description" onBlur="if(this.value == '') this.value = 'description'" onFocus="if(this.value == 'description') this.value = ''" required/></p>
+            <% } %>
 						<label>IMAGE</label>
 						<input type='file' name='post' />
 						<p><input type="submit" value="POST"></p>

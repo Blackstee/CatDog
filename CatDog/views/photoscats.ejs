@@ -40,7 +40,9 @@
 			</ul>
     </nav>
 </div>
-
+<% if (user) { %>
+<h1><a href = "/cats/photos/newpost">Create new post</a></h1>
+<% } %>
 <div id="gallery">
   <img src="/images/1.jpg" alt="" tabindex="0" />
   <img src="/images/2.jpg" alt="" tabindex="0" />

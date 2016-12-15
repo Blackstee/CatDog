@@ -104,7 +104,7 @@ router.get('/dashboard', function(req, res){
 
 //===========================================NEW POST==============================
 
-router.get('/dogs/breeds/newpost', (req, res) => res.render("newpostdogs", { user: req.session.user }));
+router.get('/dogs/breeds/newpost', (req, res) => res.render("newpostdogs", { user: req.session.user, photos : "no" }));
 
 router.post('/dogs/breeds/newpost',	(req, res) => {
 	let avaObj = req.files.post;
@@ -121,7 +121,7 @@ router.post('/dogs/breeds/newpost',	(req, res) => {
      res.redirect ('/dogs/breeds');
 	});
 
-router.get('/cats/breeds/newpost', (req, res) => res.render("newpostcats", { user: req.session.user }));
+router.get('/cats/breeds/newpost', (req, res) => res.render("newpostcats", { user: req.session.user, photos : "no" }));
 
 router.post('/cats/breeds/newpost',	(req, res) => {
 	let avaObj = req.files.post;
@@ -138,6 +138,9 @@ router.post('/cats/breeds/newpost',	(req, res) => {
      res.redirect ('/cats/breeds');
 	});
 
+router.get('/cats/photos/newpost', (req, res) => res.render("newpostcats", { user: req.session.user, photos : "yes" }));
+
+router.get('/dogs/photos/newpost', (req, res) => res.render("newpostdogs", { user: req.session.user, photos : "yes" }));
 
 //====================================USERS========================================
 
