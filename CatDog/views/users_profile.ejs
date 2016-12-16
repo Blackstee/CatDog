@@ -43,32 +43,26 @@
   <div class="container">
   <div class="card u-clearfix">
   <div class="card-media">
-    <img src='data:image/jpg;base64,<%= user.avatar %>' class="card-media-img" />
+    <img src='data:image/jpg;base64,<%=post.avatar %>' class="card-media-img" />
   </div>
   <div class="card-body">
-    <h2 class="card-body-heading"><%= user.username %></h2>
+    <h2 class="card-body-heading"><%= post.username %></h2>
   <br><br>
   </div>
   </div>
   <% }  %>
   </div>
-  <% if (thisuser) { %>
-  YOU ARE <%= thisuser.username %>
+  <% if (user) { %>
+  YOU ARE <%= user.username %>
   <% } %>
-  <div class='container'>
-		<div class='page-header'>
-			<h1>Users</h1>
-		</div>
-		<div class='row'>
-			<div class='col-md-6'>
-				<form action='/upload_avatar' method='POST' enctype="multipart/form-data">
+  <% if (user.username == post.username) { %>
+				<form action='/users/upload_avatar/<%= post._id %>' method='POST' enctype="multipart/form-data">
+
 					<label>Avatar:</label>
-					<input type='file' name='avatar' />
+					<input type='file' name='ava' />
 					<br />
 					<button type='submit' class='btn btn-primary'>Upload</button>
 				</form>
-			</div>
-		</div>
-	</div>
+        <% } %>
 </body>
 </html>

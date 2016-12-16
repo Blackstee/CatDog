@@ -153,15 +153,33 @@ router.get('/dogs/photos/newpost', (req, res) => res.render("newpostdogs", { use
 
 //====================================USERS========================================
 
-router.post('/upload_avatar', (req, res) => {
-	let avaFile = req.files.avatar;
-	let username = req.body.username;
+router.post('/users/upload_avatar/:id', (req, res) => {
+	let avaFile = req.files.ava;
 	let base64String = avaFile.data.toString('base64');
-	User.findOne({ username: username})
+	User.findById(req.params.id, function(err, user) {
+					if (err)
+							res.send(err);
+							if (user) {
+								console.log (req.params.id);
+								return User.findOneAndUpdate({ _id:  req.params.id},  {$set: { avatar: base64String }}, { new: true, upsert: true }, function(err, user)
+							{
+								if (err)
+										res.send(err);
+								res.redirect ("/users");
+							});
+							}
+							else {
+								res.status(400).end('user not exists');
+							};
+
+				});
+
+/*	User.findById({ident })
 		.then(user => {
+			console.log ("ok2")
 			if (user) {
 				return User.findAndModify({
-				    query: { username: username },
+				    query: { _id: ident },
 				    update: { $set: { avatar: base64String } },
 				});
 			}
@@ -170,7 +188,7 @@ router.post('/upload_avatar', (req, res) => {
 			}
 		})
 		.then(() => res.redirect('/'))
-		.catch(err => res.status(500).end(err));
+		.catch(err => res.status(500).end(err));*/
 });
 
 router.get('/users', (req, res) => {
@@ -195,17 +213,12 @@ router.get('/users/deleteuser/:id', function(req, res){
 });
 
 
-router.get('/users:id', function(req, res){
-	User.findONE({
-					_id: req.params.id
-			}, function(err, user) {
+router.get('/users/:id', function(req, res){
+	User.findById(req.params.id, function(err, post) {
 					if (err)
 							res.send(err);
-					res.render('users_profile', {
-								user: user,
-								thisuser: req.session.user
-					});
-			});
+					res.render("users_profile", {post:post, user:req.session.user});
+				});
 });
 //==================================CATS===========================================
 
