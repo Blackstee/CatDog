@@ -97,7 +97,7 @@
 
 
 .card-button-cta {
-  background-color: #9C948A;
+  background-color: #5D478B;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
   color: #fff;
@@ -105,12 +105,12 @@
 
 .card-button-cta:hover {
   box-shadow: 1px 5px 8px rgba(0, 0, 0, .18);
-  background-color: #5D478B;
+  background-color: #FFD700;
 }
 
 
 .card-button-cto {
-  background-color: #9C948A;
+  background-color: #5D478B;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
   color: #fff;
@@ -119,6 +119,20 @@
 .card-button-cto:hover {
   box-shadow: 1px 5px 8px rgba(0, 0, 0, .18);
   background-color: #B22222;
+}
+
+
+
+.card-button-ctu {
+  background-color: #5D478B;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+  color: #fff;
+}
+
+.card-button-ctu:hover {
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, .18);
+  background-color: #008B00;
 }
 
 .card-button-link:hover {
@@ -132,4 +146,8 @@
 .card-button-icon {
   display:inline-block;
   vertical-align:middle;
+}
+
+form{
+  display:inline;
 }

@@ -8,6 +8,7 @@ var userSchema = new mongoose.Schema({
   firstname: String,
   lastname: String,
   status: String,
+  avatar: {type: Buffer },
 });
 
 userSchema.pre('save', function(next) {

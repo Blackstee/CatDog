@@ -4,6 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="/stylesheets/photosstyle.css"/>
     <link rel="stylesheet"  href="/stylesheets/menu.css" />
+			<link rel="stylesheet" href="/stylesheets/breeds.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script src="galleria/galleria-1.4.min.js"></script>
 	<title>  CatDog </title>
@@ -41,17 +42,12 @@
     </nav>
 </div>
 <% if (user) { %>
-<h1><a href = "/cats/photos/newpost">Create new post</a></h1>
+<h1><a href = "/cats/photos/newpost" class="card-button card-button-ctu">Add new photo</a></h1>
 <% } %>
 <div id="gallery">
-  <img src="/images/1.jpg" alt="" tabindex="0" />
-  <img src="/images/2.jpg" alt="" tabindex="0" />
-  <img src="/images/3.jpg" alt="" tabindex="0" />
-  <img src="/images/4.jpg" alt="" tabindex="0" />
-  <img src="/images/kitten.jpg" alt="" tabindex="0" />
-  <img src="/images/kitten2.jpg" alt="" tabindex="0" />
-  <img src="/images/pawpaw.jpg" alt="" tabindex="0" />
-  <img src="/images/sleeps.jpg" alt="" tabindex="0" />
+	<% posts.filter(x => x.title).forEach( post => { %>
+  <img src='data:image/jpg;base64,<%= post.image %>' alt="" tabindex="0" />
+	<% })  %>
   <div></div>
 </div>
 </body>

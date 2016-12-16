@@ -40,10 +40,10 @@
     </nav>
 </div>
 <% if (user) { %>
-<h1><a href = "/cats/breeds/newpost">Create new post</a></h1>
-<form action = "/cats/search" method = "GET">
+<h1><a href = "/cats/breeds/newpost" class="card-button card-button-ctu">Create new post</a></h1>
+<form  class="form-inline" action = "/cats/search" method = "GET">
 	<input type="text" name= "title"  >
-<input type="submit" value="SEARCH">
+<input type="submit" value="SEARCH" class = "card-button card-button-cto">
 <% if (search != "nothing" && search!= "") {
 	%>
 	<h1>Searched for <%= search %></h1>

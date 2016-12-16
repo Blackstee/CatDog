@@ -4,6 +4,7 @@
   -moz-user-select: none; user-select: none;
 }
 
+
 #gallery img {
   position: absolute;
   top: 25%;
@@ -14,7 +15,7 @@
   transform: translate(-50%, -50%);
   cursor: zoom-in;
   transition: .2s;
-    border-radius: 10%; 
+    border-radius: 10%;
 }
 #gallery img:nth-child(4n-2) {left: 37.5%;}
 #gallery img:nth-child(4n-1) {left: 62.5%;}
@@ -30,7 +31,7 @@
   max-height: 100%;
   outline: none;
   pointer-events: none;
-    border-radius: 1%; 
+    border-radius: 1%;
 }
 
 #gallery img:focus ~ div {
@@ -39,6 +40,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(images/fon.jpg) no-repeat;;
+  background: url(images/fon.jpg);
   cursor: zoom-out;
 }

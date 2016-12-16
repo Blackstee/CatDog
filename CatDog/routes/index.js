@@ -26,6 +26,8 @@ router.post('/register', function(req, res){
   var password2 = req.body.pass2;
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;
+	let avaFile = req.files.avatar;
+	let base64String = avaFile.data.toString('base64');
   console.log(username);
 		if (!username || !password || password !== password2) {
 			res.redirect('/register');
@@ -41,6 +43,7 @@ router.post('/register', function(req, res){
   newuser.firstname = firstname;
   newuser.lastname = lastname;
 	newuser.status = "user";
+	newuser.avatar = base64String;
   newuser.save(function(err, savedUser){
     if (err){
       console.log(err);
@@ -118,6 +121,9 @@ router.post('/dogs/breeds/newpost',	(req, res) => {
 					if (err)
 							res.send(err);
 			});
+			if (newpost.description == null)
+			res.redirect ('/dogs/photos')
+			else
      res.redirect ('/dogs/breeds');
 	});
 
@@ -135,6 +141,9 @@ router.post('/cats/breeds/newpost',	(req, res) => {
 					if (err)
 							res.send(err);
 			});
+			if (newpost.description == null)
+			res.redirect ('/cats/photos')
+			else
      res.redirect ('/cats/breeds');
 	});
 
@@ -154,7 +163,6 @@ router.post('/upload_avatar', (req, res) => {
 				return User.findAndModify({
 				    query: { username: username },
 				    update: { $set: { avatar: base64String } },
-				    new: false
 				});
 			}
 			else {
@@ -176,33 +184,34 @@ router.get('/users', (req, res) => {
 		.catch(err => res.status(500).end(err));
 });
 
-router.post('/deleteuser', function(req, res){
-	var todelete = req.body.username;
-	console.log (todelete );
-	if (User.findOne({ username: todelete}))
-	{
-
-	         	User.findOneAndRemove({username: todelete}, function(err){
-           if (!err) {
-			        console.log ("yaaaaaa");
-               }
-              else {
-			         console.log ("nooo");
-            }
-					});
-
-					console.log("Deleted");
-				} else {
-					console.log ("wrong username");
-				}
-			res.redirect('/users');
+router.get('/users/deleteuser/:id', function(req, res){
+	User.remove({
+					_id: req.params.id
+			}, function(err, post) {
+					if (err)
+							res.send(err);
+					res.redirect('/users');
+			});
 });
 
+
+router.get('/users:id', function(req, res){
+	User.findONE({
+					_id: req.params.id
+			}, function(err, user) {
+					if (err)
+							res.send(err);
+					res.render('users_profile', {
+								user: user,
+								thisuser: req.session.user
+					});
+			});
+});
 //==================================CATS===========================================
 
 
 router.get('/cats/breeds', function(req, res){
-	Post.find({animal:"cats"})
+	Post.find({animal:"cats", description: {$ne : null}})
 		.then(posts => {
 			res.render('breedscats', {
          posts: posts,
@@ -235,7 +244,17 @@ router.get('/cats/breeds/:id', function(req, res) {
 
 router.get('/cats/news', (req, res) => res.render("newscats", { user: req.session.user }));
 
-router.get('/cats/photos', (req, res) => res.render("photoscats", { user: req.session.user }));
+
+router.get('/cats/photos', function(req, res){
+	Post.find({animal:"cats"})
+		.then(posts => {
+			res.render('photoscats', {
+         posts: posts,
+				 user: req.session.user,
+			});
+		})
+		.catch(err => res.status(500).end(err));
+});
 
 router.get('/cats/videos', (req, res) => res.render("videoscats", { user: req.session.user }));
 
@@ -279,7 +298,7 @@ router.get ('/cats/search', function (req, res){
 
 router.get('/dogs/breeds', function(req, res){
 	console.log(req.user);
-	Post.find({animal: "dogs"})
+	Post.find({animal: "dogs", description: {$ne : null}})
 		.then(posts => {
 			res.render('breedsdogs', {
          posts: posts,
@@ -314,8 +333,16 @@ router.get('/dogs/breeds/:id', function(req, res) {
 
 router.get('/dogs/news', (req, res) => res.render("newsdogs", { user: req.session.user }));
 
-router.get('/dogs/photos', (req, res) => res.render("photosdogs", { user: req.session.user }));
-
+router.get('/dogs/photos', function(req, res){
+	Post.find({animal:"dogs"})
+		.then(posts => {
+			res.render('photosdogs', {
+         posts: posts,
+				 user: req.session.user,
+			});
+		})
+		.catch(err => res.status(500).end(err));
+});
 router.get('/dogs/videos', (req, res) => res.render("videosdogs", { user: req.session.user }));
 
 router.get ('/dogs/search', function (req, res){

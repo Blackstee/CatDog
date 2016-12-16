@@ -3,10 +3,8 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="/stylesheets/stylesmain.css"/>
+	<link rel="stylesheet" href="/stylesheets/breeds.css"/>
     <link rel="stylesheet"  href="/stylesheets/menu.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 	<title>  CatDog </title>
     <link rel="shortcut icon" href="/public/images/icon.ico" />
 </head>
@@ -41,35 +39,39 @@
 		</ul>
 	</nav>
 </div>
-<div id="wrapper">
-  <div class='container'>
-    <div class='page-header'>
-      <h1>Users</h1>
-    </div>
-    <div class='row' >
-      <div class='col-md-6'>
-        <% if (user == "BOSS") {users.filter(x => x.username).forEach( justuser => { %>
-          <div class='row'>
+<%  {users.filter(x => x.username).forEach( justuser => { %>
+<div class="container">
+<div class="card u-clearfix">
+	<div class="card-body">
+		<div class="card-media">
+			<img src='data:image/jpg;base64,<%= justuser.avatar %>' class="card-media-img" />
+		</div>
+		<h2 class="card-body-heading"><a href = "/users/<%= justuser._id %>"><%= justuser.username %></a></h2>
+	<br><br>
+	<a href="/users/deleteuser/<%= justuser._id %>" class="card-button card-button-cto">
+DELETE USER</a>
+	</div>
+</div>
+<% }) } %>
+</div>
 
-            <div class='col-md-6'>
-              <b><%= justuser.username %></b>
-            </div>
-            <div class='col-md-6'>
-            </div>
-            <p>
-          </div>
-        <% }) } %>
-      </div>
-    </div>
-    <form action = "/deleteuser" method = "POST">
-      <div class = 'forforms'><input type="text" name="username" value  = "to delete"  onBlur="if(this.value == '') this.value = 'to delete'" onFocus="if(this.value == 'to delete') this.value = ''" required</div>
-    <input type="submit" value="Delete">
-      </form>
-  </div>
-				<footer> <h1><% if (user) { %>
-				YOU ARE BOSS
-				<% } %></h1>
-					It is the web-site about cats and dogs
-		        </footer>
+<!-- <div id="light-pagination" class="pagination">
+<script type='text/javascript'>
+$(window).load(function(){
+$('#light-pagination').pagination({
+	items: 5,
+	itemsOnPage: 2,
+	hrefTextPrefix: '',
+	hrefTextSuffix: '.html',
+	prevText: 'Пред',
+	nextText: 'След',
+	cssStyle: 'light-theme'
+});
+});
+</script></div> -->
+	<footer> <h1><% if (user) { %>
+	YOU ARE <%= user.username %>
+	<% } %></h1>
+			</footer>
 </body>
 </html>
